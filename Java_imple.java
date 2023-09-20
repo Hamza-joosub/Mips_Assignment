@@ -29,9 +29,6 @@ public class Java_imple
                     writer.write(t1 + "\n");
                 }
                     System.out.println("complete");
-
-
-
             }
             catch(Exception e)
             {
