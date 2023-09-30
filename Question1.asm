@@ -32,10 +32,23 @@ read_loop:
     j read_loop
 print_loop:
     li $v0, 4 
-    la $a0, 0($sp)
+    la $a0, ($sp)
     addi $sp, $sp, 1
     syscall
-    
+convert_to_int:
+la $t0, StringNumber
+li $s1, 10
+li $s2, 100
+lb $t2, 1($t0)
+lb $t1, 2($t0)
+lb $t5, ($t0)
+subi $t3, $t1, 48
+subi $t4, $t2, 48
+subi $t5, $t5, 48
+mul $t4, $t4, $s1
+mul $t5, $t5, 100
+add $s0, $t4, $t3
+add $s0, $s0, $t5
 
     # Check for end of file (EOF)
     #beq $v0, $zero, file_end
